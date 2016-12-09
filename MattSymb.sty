@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{MattSymb}[2016/12/09 Custom package for common math symbols]
+\RequirePackage{amsmath,amsthm,amssymb}
+
+\newcommand{\N}{\mathbb{N}}	% Natural numbers
+\newcommand{\R}{\mathbb{R}}	% Real numbers
+\newcommand{\C}{\mathbb{C}} % Complex numbers
+\newcommand{\Z}{\mathbb{Z}}	% Integers
+\newcommand{\Q}{\mathbb{Q}} % Rational numbers
+\newcommand{\Ct}{\mathcal{C}} % Cantor set
+\newcommand{\erf}[1]{\int_0^{#1} e^{-t^2}dt}
+\newcommand{\abs}[1]{\left| #1\right|}
+\newcommand{\norm}[2]{\|#1\|_{#2}}
+\newcommand{\inprod}[2]{\left< #1, #2 \right>}
