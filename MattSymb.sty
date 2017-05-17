@@ -12,3 +12,16 @@
 \newcommand{\abs}[1]{\left| #1\right|}
 \newcommand{\norm}[2]{\|#1\|_{#2}}
 \newcommand{\inprod}[2]{\left< #1, #2 \right>}
+
+% Some derivatives
+\newcommand{\der}[2]{\frac{d #1}{d #2}} % First derivative of #1 wrt #2
+\newcommand{\derN}[3]{\frac{d^{#2} #1}{d #3^{#2}}} % Derivative of #1 of order #2 wrt #3 argument
+
+\newcommand{\pd}[2]{\frac{\partial #1}{\partial #2}} % Partial derivative of #1 wrt #2
+\newcommand{\pdN}[3]{\frac{\partial^{#2} #1}{\partial #3^{#2}}} % Partial derivative of #1 of order #2 wrt #3 argument
+
+% Some integrals
+\newcommand{\indefInt}[2]{\int #1 \hspace{0.2em} d#2} % Indefinite integral of #1 wrt #2
+\newcommand{\defInt}[4]{\int_{#3}^{#4} #1 \hspace{0.2em} d#2} % Definite integral of #1 wrt #2 between #3 and #4
+
+\newcommand{\goes}{\rightarrow}
