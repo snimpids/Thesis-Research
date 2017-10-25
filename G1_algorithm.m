@@ -4,33 +4,28 @@
 %==============================================%
 clear;
 
-N = 101;
+N = 201;
 a = 0;
 b = 3;
-x = linspace(b,a,N);
+x = linspace(a,b,N);
 f = (x-1).*(x-2).*(x-3);
 q = 0.5;
 D = zeros(1,N);     % The differintegral.
-D(1,1) = f(1);
+f = fliplr(f);
+% D(1,1) = f(1);
+
 F_previous = f(1);
 
-for i = 2:N
-    for j = 2:i
+% Outer loop assigns differintegral sums to array D.
+% Inner loop calculates differintegral at each point in the domain.
+
+for i = 1:N
+    for j = 1:i
         F_current = F_previous*(i-j-q)/(i-j+1) + f(j);
         F_previous = F_current;
     end
     D(1,i) = (i/x(i))^q*F_current;
 end
 
-% Comparing to the analytic differintegral.
-AD = (Gamma(2)/Gamma(4-q)).*x.^(3-q)...
-    - 6*x.^(2-q)./Gamma(3-q)...
-    + 11*x.^(1-q)./Gamma(2-q)...
-    - 6*x.^(-q)./Gamma(1-q);
-
-FD = fracderivative(f,32,q,'x');
-
-g = 3.*x.^2 - 12*x + 11;
-
-figure(2);
+figure(1);
 plot(x,f,'k',x,D,'r')
