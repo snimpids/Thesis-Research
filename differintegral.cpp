@@ -1,6 +1,9 @@
 #include <cmath>
 
 double test_function(float in_x){
-  
+  return cmath::sqrt(in_x);
 };
-double linspace(int N, double * in_array, double * a, double * b);
+/* This may not be needed if we use opencv.
+double linspace(int N, double * a, double * b){
+};
+*/  
