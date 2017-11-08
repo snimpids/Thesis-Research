@@ -4,7 +4,12 @@ def GL(alpha, f_name, domain_start = None, domain_end = None, num_points = None)
     """Computes the GL fractional derivative of a function at a point.
        
        Parameters
-        ==========
+       ==========
+        alpha : float
+            The order of the differintegral to be computed.
+        f_name : function handle
+            Either a lambda function or function handle. This is the function 
+            that is to be differintegrated.
         domain_start : float
             The left-endpoint of the function domain.
         domain_end : float
@@ -12,11 +17,10 @@ def GL(alpha, f_name, domain_start = None, domain_end = None, num_points = None)
             differintegral is being evaluated.
         num_points : integer
             The number of points in the domain.
-        alpha : float
-            The order of the differintegral to be computed.
-        *argv : function handle
-            Either a lambda function or elsewhere defined function. 
-            This is the function that is to be differintegrated.
+            
+        Examples:
+        >>>DF_sqrt = GL(0.5, f = lambda x: np.sqrt(x), 0., 1., 100)
+        >>>DF_sqrt = GL(0.5, f, 0., 1., 100)    # Where f is defined elsewhere.
     """
     # Set the default domain left-endpoint and number of domain points.
     if domain_start == None:
