@@ -22,9 +22,20 @@ def GL(alpha, f_name, domain_start = None, domain_end = None, num_points = None)
         >>>DF_sqrt = GL(0.5, f = lambda x: np.sqrt(x), 0., 1., 100)
         >>>DF_sqrt = GL(0.5, f, 0., 1., 100)    # Where f is defined elsewhere.
     """
+    # Check for valid inputs.
+    if domain_end < domain_start:
+        raise ValueError('Right endpoint must be larger than the left endpoint.')
+        
+    if not hasattr(f_name, '__call__'):
+        msg = 'Input arg {} is not callable! Please input a function handle.'.format(str(f_name))
+        raise TypeError(msg)
+    
     # Set the default domain left-endpoint and number of domain points.
     if domain_start == None:
         domain_start = 0.
+        
+    if domain_end == None:
+        domain_end = 1.
     
     if num_points == None:
         num_points = 100
